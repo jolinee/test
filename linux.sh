@@ -25,6 +25,9 @@ wget --no-check-certificate https://bin.equinox.io/c/4VmDzA7iaHb/ngrok-stable-li
 unzip ngrok-stable-linux-386.zip
 chmod +x ./ngrok
 
+sudo sed -i "/^[^#]*PasswordAuthentication[[:space:]]no/c\PasswordAuthentication yes" /etc/ssh/sshd_config
+sudo service sshd restart
+
 echo "### Update user: $USER password ###"
 #echo -e "$LINUX_USER_PASSWORD\n$LINUX_USER_PASSWORD" | sudo passwd "$USER"
 yes $LINUX_USER_PASSWORD | sudo passwd "$USER"
