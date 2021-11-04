@@ -45,6 +45,8 @@ HAS_ERRORS=$(grep "command failed" < .ngrok.log)
   echo "To connect: $(grep -o -E "tcp://(.+)" < .ngrok.log | sed "s/tcp:\/\//ssh $USER@/" | sed "s/:/ -p /")"
   echo "or conenct with $(grep -o -E "tcp://(.+)" < .ngrok.log | sed "s/tcp:\/\//ssh (Your Linux Username)@/" | sed "s/:/ -p /")"
   echo "=========================================="
+  
+   while :; do echo 'Hit CTRL+C'; sleep 1; done
 #else
  # echo "$HAS_ERRORS"
  # exit 4
