@@ -1,6 +1,6 @@
-version: 2.1
-
+version: 2
 jobs:
   build:
-     steps:
-        - run ls
+    machine: true
+    steps:
+      - run: ls
