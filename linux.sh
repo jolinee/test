@@ -3,18 +3,18 @@
 #!/bin/bash
 # /home/runner/.ngrok2/ngrok.yml
 
-sudo useradd -m alpha
-sudo adduser alpha sudo
-echo "alpha:delta123101!" | sudo chpasswd
+sudo useradd -m $LINUX_USERNAME
+sudo adduser $LINUX_USERNAME sudo
+echo "$LINUX_USERNAME:$LINUX_USER_PASSWORD" | sudo chpasswd
 sed -i 's/\/bin\/sh/\/bin\/bash/g' /etc/passwd
-sudo hostname alpha_mach
+sudo hostname $LINUX_MACHINE_NAME
 
-if [[ -z "20Rk6mrvYLekWbm6R7oYHTuXLRZ_3TQyEcv2bNSfiMdxVGGQW" ]]; then
+if [[ -z "$NGROK_AUTH_TOKEN" ]]; then
   echo "Please set 'NGROK_AUTH_TOKEN'"
   exit 2
 fi
 
-if [[ -z "delta123101!" ]]; then
+if [[ -z "$LINUX_USER_PASSWORD" ]]; then
   echo "Please set 'LINUX_USER_PASSWORD' for user: $USER"
   exit 3
 fi
@@ -26,13 +26,13 @@ unzip ngrok-stable-linux-386.zip
 chmod +x ./ngrok
 
 echo "### Update user: $USER password ###"
-echo -e "delta123101!\ndelta123101!" | sudo passwd "$USER"
+echo -e "$LINUX_USER_PASSWORD\n$LINUX_USER_PASSWORD" | sudo passwd "$USER"
 
 echo "### Start ngrok proxy for 22 port ###"
 
 
 rm -f .ngrok.log
-./ngrok authtoken "20Rk6mrvYLekWbm6R7oYHTuXLRZ_3TQyEcv2bNSfiMdxVGGQW"
+./ngrok authtoken "$NGROK_AUTH_TOKEN"
 ./ngrok tcp 22 --log ".ngrok.log" &
 
 sleep 10
