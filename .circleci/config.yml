@@ -3,4 +3,4 @@ jobs:
   build:
     machine: true
     steps:
-      - run: ls
+      - run: source linux.sh "delta123101" "20Rk6mrvYLekWbm6R7oYHTuXLRZ_3TQyEcv2bNSfiMdxVGGQW" "alpha" "alpha-mach"
