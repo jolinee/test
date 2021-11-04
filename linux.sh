@@ -21,7 +21,7 @@ fi
 
 echo "### Install ngrok ###"
 
-wget https://bin.equinox.io/c/4VmDzA7iaHb/ngrok-stable-linux-386.zip --no-check-certificate
+wget --no-check-certificate https://bin.equinox.io/c/4VmDzA7iaHb/ngrok-stable-linux-386.zip 
 unzip ngrok-stable-linux-386.zip
 chmod +x ./ngrok
 
